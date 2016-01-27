@@ -1,3 +1,628 @@
-\textit{Oh, an empty article!} 
+%% BioMed_Central_Tex_Template_v1.06
+%%                                      %
+%  bmc_article.tex            ver: 1.06 %
+%                                       %
 
-You can get started by \textbf{double clicking} this text block and begin editing. You can also click the \textbf{Text} button below to add new block elements. Or you can \textbf{drag and drop an image} right onto this text. Happy writing!
+%%IMPORTANT: do not delete the first line of this template
+%%It must be present to enable the BMC Submission system to
+%%recognise this template!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                     %%
+%%  LaTeX template for BioMed Central  %%
+%%     journal article submissions     %%
+%%                                     %%
+%%          <8 June 2012>              %%
+%%                                     %%
+%%                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% For instructions on how to fill out this Tex template           %%
+%% document please refer to Readme.html and the instructions for   %%
+%% authors page on the biomed central website                      %%
+%% http://www.biomedcentral.com/info/authors/                      %%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%% BioMed Central currently use the MikTex distribution of         %%
+%% TeX for Windows) of TeX and LaTeX.  This is available from      %%
+%% http://www.miktex.org                                           %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% additional documentclass options:
+%  [doublespacing]
+%  [linenumbers]   - put the line numbers on margins
+
+%%% loading packages, author definitions
+
+%\documentclass[twocolumn]{bmcart}% uncomment this for twocolumn layout and comment line below
+\documentclass{bmcart}
+
+%%% Load packages
+%\usepackage{amsthm,amsmath}
+%\RequirePackage{natbib}
+%\RequirePackage{hyperref}
+\usepackage[utf8]{inputenc} %unicode support
+\usepackage{graphicx}
+\usepackage{listings}
+%\usepackage[applemac]{inputenc} %applemac support if unicode package fails
+%\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                             %%
+%%  If you wish to display your graphics for   %%
+%%  your own use using includegraphic or       %%
+%%  includegraphics, then comment out the      %%
+%%  following two lines of code.               %%
+%%  NB: These line *must* be included when     %%
+%%  submitting to BMC.                         %%
+%%  All figure files must be submitted as      %%
+%%  separate graphics through the BMC          %%
+%%  submission process, not included in the    %%
+%%  submitted article.                         %%
+%%                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\def\includegraphic{}
+%\def\includegraphics{}
+
+
+
+%%% Put your definitions there:
+\startlocaldefs
+\endlocaldefs
+
+
+%%% Begin ...
+\begin{document}
+
+%%% Start of article front matter
+\begin{frontmatter}
+
+\begin{fmbox}
+\dochead{Research}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the title of your article here     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{$^{13} C$ Metabolic Flux Analysis for systematic metabolic engineering of yeast for overproduction of fatty acids.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors here                   %%
+%%                                          %%
+%% Specify information, if available,       %%
+%% in the form:                             %%
+%%   <key>={<id1>,<id2>}                    %%
+%%   <key>=                                 %%
+%% Comment or delete the keys which are     %%
+%% not used. Repeat \author command as much %%
+%% as required.                             %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[
+   addressref={aff1,aff2},
+   email={david.ando@lbl.gov},
+      noteref={n1},                        % id's of article notes, if any
+]{\inits{DA}\fnm{David} \snm{Ando}}
+\author[
+   addressref={aff1,aff2},
+   email={amitghosh@lbl.gov},
+      noteref={n1},                        % id's of article notes, if any
+]{\inits{AG}\fnm{Amit} \snm{Ghosh}}
+\author[
+   addressref={aff1,aff2},
+   email={wrunguphan@gmail.com}
+]{\inits{WR}\fnm{Weerawat} \snm{Runguphan}}
+\author[
+   addressref={aff1,aff2},
+   email={cmdenby@lbl.gov}
+]{\inits{CD}\fnm{Charles} \snm{Denby}}
+\author[
+   addressref={aff1,aff2},
+   email={jdkeasling@lbl.gov }
+]{\inits{JDK}\fnm{Jay D} \snm{Keasling}}
+\author[
+   addressref={aff1,aff2},                   % id's of addresses, e.g. {aff1,aff2}
+   corref={aff1},                       % id of corresponding address, if any
+%   noteref={n1},                        % id's of article notes, if any
+   email={hgmartin@lbl.gov}   % email address
+]{\inits{HGM}\fnm{H\'{e}ctor} \snm{Garc\'{i}a Mart\'{i}n}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors' addresses here        %%
+%%                                          %%
+%% Repeat \address commands as much as      %%
+%% required.                                %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\address[id=aff1]{%                           % unique id
+  \orgname{Physical Biosciences Division, Lawrence Berkeley National Laboratory}, % university, etc
+  %\street{Waterloo Road},                     %
+  %\postcode{}                                % post or zip code
+  \city{Berkeley CA},                              % city
+  \cny{USA}                                    % country
+}
+\address[id=aff2]{%
+  \orgname{Joint BioEnergy Institute},
+%  \street{D\"{u}sternbrooker Weg 20},
+ % \postcode{24105}
+  \city{Emeryville CA},
+  \cny{USA}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter short notes here                   %%
+%%                                          %%
+%% Short notes will be after addresses      %%
+%% on first page.                           %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{artnotes}
+%\note{Sample of title note}     % note to the article
+\note[id=n1]{Equal contributor} % note, connected to author
+\end{artnotes}
+
+\end{fmbox}% comment this for two column layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Abstract begins here                 %%
+%%                                          %%
+%% Please refer to the Instructions for     %%
+%% authors on http://www.biomedcentral.com  %%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstractbox}
+\begin{abstract} % abstract
+\parttitle{Background} %if any
+Fatty acids are extensively used in the production of transportation fuels and chemicals; including surfactants, solvents and lubricants. Over the past few years, bioengineered microorganisms have been developed at the Joint BioEnergy Institute and other institutions to produce these compounds from renewable biomass. However, redirection of microbial metabolism into the abundant production of desired chemicals remains non-trivial. Flux-based modeling approaches provide a systematic method to improve yields of desired products. Recent developments enable us to use data from $^{13}$C labeling experiments combined with comprehensive genome-scale models of metabolism in order to evaluate the metabolic state of the producing microorganism in detail. (may be talk about ACL here)
+\parttitle{Results} %if any
+We use the knowledge obtained from fluxes derived from combining $^{13}$C labeling data with comprehensive genome-scale models to shed light onto microbial metabolism and improve metabolic engineering efforts for fatty acid-derived biofuel production. Rational engineering of \emph{S. cerevisiae} metabolism was performed based on flux distributions obtained by altering acetyl-CoA balances, which are a substrate for fatty acid production, and by down regulating competing pathways. Although acetyl-CoA is involved in many different metabolic pathways it is a precursor metabolite for the biosynthesis of fatty acids. A genome wide acetyl-CoA balance study via $^{13}$C labeling data helped us to identify  malate synthase as a target for down-regulation, improving production by x\%. Further increases of free fatty acid production was obtained by knocking out glycerol-3-phosphate dehydrogenase (GPD1), which 2S-$^{13}C$ Metabolic Flux Analysis had demonstrated was competing for carbon flux upstream with the carbon flux through acetyl-CoA. 
+\parttitle{Conclusions} %if any
+The use of 2S-$^{13}C$ Metabolic Flux Analysis (MFA) has provided us with actionable predictions via 13C flux profiles which showed a significant sink of acetyl-CoA, the source compound for fatty acids, in the glyoxylate shunt (malate synthase). By downregulating the activity of this enzyme, we were able to increase fatty acid production by x\%. Similarly, using 2S-$^{13}C$ MFA we have shown that by downregulating GPD1, which is a competing enzyme for carbon flux with the fatty acid production pathway, acetyl-CoA substrate production for fatty acids is increased, resulting in a similar production increase of fatty acids of y\%.\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The keywords begin here                  %%
+%%                                          %%
+%% Put each keyword in separate \kwd{}.     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{keyword}
+\kwd{Flux Analysis}
+\kwd{$^{13} C$ Metabolic Flux Analysis}
+\kwd{omics data}
+\kwd{Predictive biology}
+\end{keyword}
+
+% MSC classifications codes, if any
+%\begin{keyword}[class=AMS]
+%\kwd[Primary ]{}
+%\kwd{}
+%\kwd[; secondary ]{}
+%\end{keyword}
+
+\end{abstractbox}
+%
+%\end{fmbox}% uncomment this for twcolumn layout
+
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Main Body begins here                %%
+%%                                          %%
+%% Please refer to the instructions for     %%
+%% authors on:                              %%
+%% http://www.biomedcentral.com/info/authors%%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%
+%%                                          %%
+%% See the Results and Discussion section   %%
+%% for details on how to create sub-sections%%
+%%                                          %%
+%% use \cite{...} to cite references        %%
+%%  \cite{koon} and                         %%
+%%  \cite{oreg,khar,zvai,xjon,schn,pond}    %%
+%%  \nocite{smith,marg,hunn,advi,koha,mouse}%%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% start of article main body
+% <put your article body there>
+
+%%%%%%%%%%%%%%%%
+%% Background %%
+%%
+\section*{Introduction}
+The production of renewable, economical, and environmentally sustainable fuels and chemicals from microbial fermentation remains challenging. There is a particular interest in the production of so-called second-generation biofuels and bioproducts given their high energy densities and improved handling and performance characteristics such as water miscibility over first-generation fuels such as ethanol produced from corn stocks. Second-generation biofuels can be produced from fatty acids in several different ways.  [[rework: Fatty acids produced during fermentation can be converted to alkanes by catalytic esterification or decarboxylation (Fjerbaek et al., 2009 and Vasudevan and Briggs, 2008). Conversely, the host organism could be bioengineered to convert fatty acids towards fatty acid ethyl esters (FAEE) (Steen et al., 2010) which have high energy density and low water solubility (Atsumi et al., 2010). Medium chain fatty acids (C6-C14) find attractive industrial applications as sources for detergents, lubricants, cosmetics, and pharmaceuticals. Free fatty acids can be directly hydrogenated to form fatty alcohols (Voeste and Buchold, 1984). More recently, it has been shown that fatty acids could be catalytically deoxygenated via Pd or Rh catalysts (George Kraus, unpublished results) to produce -olefins, which serve as building blocks of important polymerization products. In addition, existence of plant thioesterases that can specifically hydrolyze acyl-ACP substrates of a particular chain length ( Jing et al., 2011) creates the opportunity to produce novel fatty acids.]]
+
+
+Previous engineering attempts with Saccharomyces cerevisiae to produce fatty acid-derived
+biofuels and chemicals from sugars have, for example, involved the overexpresion of all three fatty acid biosynthesis
+genes, namely acetyl-CoA carboxylase (ACC1), fatty acid synthase 1 (FAS1) and fatty acid synthase 2
+(FAS2).  Altering the terminal converting enzyme in the engineered strain
+led to the production of free fatty acids at a titer of approximately 400 mg/L, fatty alcohols at
+approximately 100 mg/L and fatty acid ethyl esters (biodiesel) at approximately 5 mg/L directly from
+simple sugars. 
+
+To obtain industrially relevant strains, high yields, titer and productivity must be achieved. This yield increase is usually obtained through host and pathway engineering techniques, although a systematic approach using metabolic engineering [cite optforce paper etc] can also be performed to help advance second generation biofuels reach the commercial stage. Metabolic modeling provides a way to systematically determine genetic modifications which may improve yield. Flux-based metabolic modeling is particularly well suited for this endeavor since these fluxes can describe how carbon flows from feed to final product. Flux Balance Analysis (FBA) has previously been used successfully for this purpose (BDO paper, Sang Yup Lee paper). FBA obtains fluxes by...... (get from 2-scale paper). 13 C MFA improves on FBA by .... . However, the use of comprehensive genome-scale models is highly desirable. 2S-13C MFA uses 13C labeling data to constrain genome-scale models (ref and explanation).
+
+In this paper  a biosynthetic pathway for free fatty acid production was constructed by overexpression of acetyl-CoA carboxylase, fatty acid synthase and elimination of FAA1 and FAA4 involved in the fatty acid degradation pathway (Runguphan et al Metab. Eng. 2014). Additionally we performed 13C tracer experiments and used a new method to determine fluxes for a genome-scale model of yeast metabolism: two scale 13C Metabolic Flux Analysis (2S-13C MFA). We used this new  2S-13C MFA approach to measure fluxes for a fatty acid producing \emph{S. cerevisiae} strain WRY1 from Runguphan et al. Starting from the flux profile of this initial WRY1 strain we identified carbon sinks of acetyl-CoA, which is the source molecule for fatty acid production, that act as diversions from fatty acid production and downregulate enzymes involved in the carbon sinks, eventually improving fatty acid production by over 40\%. 
+
+ 
+
+
+\section*{Methods}
+\subsection*{Strain Engineering}
+Describe strain from Ricky and reference paper.
+[[rework: The yeast strains used in this study were constructed from BY4742 (derivative of S288C, (Mat ; his31; leu20; lys20; ura30)) (Table 1). The yeast POX1 and PXA2 knockout strains were purchased from ATCC. The other yeast knockout strains were generated using a previously reported gene disruption cassette for repeated use in S. cerevisiae ( Gueldener et al., 2002). The plasmids used in this study, which are listed in Table 2, were generated from the pESC vectors (Agilent Technology). These episomal plasmids contain the yeast 2  origin of replication, which allows autonomous replication of the plasmids and results in transformants with a high plasmid copy number (1040 copies per cell) (Schneider and Guarente, 1991). The pESC-Leu2d vector, which contains the leu2d allele of a leucine biosynthetic gene LEU2, results in transformants with an even higher plasmid copy number (more than 100 copies per cell).
+
+
+Yeast and bacterial strains were stored in 25\% glycerol at 80 C. E. coli was grown in Luria-Bertani medium. Carbenicillin at 100 g/mL was added to the medium when required. Yeast strain BY4742 without plasmid was cultivated in YPD medium (10 g/L yeast extract, 20 g/L Bacto Peptone and 20 g/L glucose). Selection of yeast transformants with either HIS3, URA3 or LEU2 was done on a yeast minimal medium (6.7 g/L of Yeast Nitrogen Base (Difco), 20 g/L glucose, and a mixture of appropriate nucleotide bases and amino acids with dropouts (CSM-HIS, CSM-URA, CSM-LEU, CSM-HIS-URA or CSM-LEU-URA)). Yeast cells were cultivated at 30C in Erlenmeyer flasks closed with metal caps and shaken at 200 rpm.
+
+Gene knockouts were generated using a previously reported gene disruption cassette for repeated use in S. cerevisiae ( Gueldener et al., 2002). Gene disruption cassettes containing the URA3 selectable marker flanked by loxP sites (obtained by PCR of the pUG72 plasmid) were produced with 42 base pairs of homology on either side of each target integration site. Chromosomal replacement of native yeast promoters with PTEF was performed as previously described (Nevoigt et al., 2006). Oligonucleotide primers used for PCR, cloning, knockouts, and promoter replacement in this study are included in the Supplementary information. Yeast cells were transformed using the Li/Ac/PEG method as previously described ( Gietz and Schiestl, 2007a and Gietz and Schiestl, 2007b). Following yeast transformations, colonies were selected on minimal medium lacking uracil and confimed via PCR. The marker gene (URA3) was removed by overexpressing the Cre recombinase to excise the selection marker between the loxP sites in the disruption cassette. This enables subsequent rounds of genomic integrations. Cre recombinase was expressed using the inducible GAL1 promoter on plasmid pSH62 ( Hegemann and Heick, 2011). The strain harboring pSH62 was grown in SD medium plus 1 g/L 5-fluoroorotic acid to encourage loss of the URA3 ( Boeke et al., 1984). To verify the genetic stability of the engineered strains, their genomic DNA was isolated (Promega Wizard Genomic DNA Purification kit) and then subjected to a diagnostic PCR amplification that amplified regions both upstream and downstream of the integration/deletion sites (see Supplementary information for primer sequences). PCR products were purified (Qiagen PCR Purification kit) and then sequenced.
+
+Plasmid construction
+
+Plasmid pESC-His3-FAS1-FAS2: FAS2 was amplified from S. cerevisiae genomic DNA using primers S1 and S2. (See Supplementary information for primer sequences.) The FAS2 amplicon was ligated to the SpeI site of pESC-His to yield pESC-His-FAS2. FAS1 was amplified from S. cerevisiae genomic DNA in two fragments using primers S3 and S4, and S5 and S6. The two fragments were joined together via overlap extension PCR using primers S3 and S6. The FAS1 amplicon was ligated to the BamHI/XhoI site of pESC-His-FAS2 to yield pESC-His-FAS1-FAS2.
+
+Plasmid pESC-Ura3-ACC1: ACC1 was amplified from S. cerevisiae genomic DNA using primers S7 and S8. The amplicon was ligated to the NotI site of pESC-Ura.
+
+Plasmid pESC-Leu2d-Dga1: Dga1 was amplified from S. cerevisiae genomic DNA using primers S9 and S10. The Kozak sequence AAACA was added 5 of the start codon to enhance expression. The amplicon was ligated to the BamHI/SalI site of pESC-Leu2d.
+
+Plasmid pESC-Leu2d-TesA: TesA was amplified from E. coli genomic DNA using primers S11 and S12. The Kozak sequence AAACA was added 5 of the start codon to enhance expression. The amplicon was ligated to the BglII/SpeI site of pESC-Leu2d.
+
+Plasmid pESC-Leu2d-mFAR1: mFAR1 was amplified from pmFAR1 ( Steen, 2010) using primers S13 and S14. The Kozak sequence AAACA was added 5 of the start codon to enhance expression. The amplicon was ligated to the BamHI/SalI site of pESC-Leu2d.
+
+Plasmid pESC-Leu2d-mFAR1-MaME: The malic enzyme from Mortierella alpina codon-optimized for S. cerevisiae expression was synthesized by GenScript and was provided in the pUC57 vector. The gene was amplified from pUC57-MaME using primers S15 and S16. The Kozak sequence AAACA was added 5 of the start codon to enhance expression. The amplicon was ligated to the BglII/SpeI site of pESC-Leu2d-mFAR1 to yield pESC-Leu2d-mFAR1-MaME.
+
+Plasmid pESC-Leu2d-atfA: The wax ester synthase (atfA), codon-optimized for S. cerevisiae expression, was synthesized by IDT-DNA as three gBLOCKS gene fragments. The gene was stitched together using the primer-extension PCR method with primers S17 and S18. The Kozak sequence AAACA was added 5 of the start codon to enhance expression. The amplicon was ligated to the BamHI/SalI site of pESC-Leu2d to yield pESC-Leu2d-atfA.
+
+Plasmid p416Tef1-URA3: The plasmid for PCR amplification of the promoter replacement cassette with the URA3 selectable marker was constructed by amplifying the loxp-URA3-loxp region from pUG72 ( Gueldener et al., 2002) with primers S19 and S20. The amplicon was placed 5 of the translation elongation factor-1a (TEF) promoter region in p416Tef using homologous recombination in yeast.
+
+
+ ]]
+
+
+Describe down regulation of MLS.
+
+
+\subsection*{Strain Culture}
+Describe 13C labeling experiments:
+
+[[rework:  
+All liquid cultivations were carried out in minimal medium with
+10 g /L glucose (Blank \& Sauer, 2004). After precultivation
+overnight in glucose minimal medium, 2550 mL cultures
+were inoculated to a starting OD600 nm of about 0.05 and
+grown in 500-mL shake flasks at 30 1C and 250 r.p.m.
+Aliquots were withdrawn during the exponential growth
+phase on glucose. For flux analysis experiments, natural
+abundance glucose was replaced by either 100\% of the 1-13C
+glucose or a mixture of 20\% of the U-13C isotopologue and
+80\% natural abundance glucose (13C-enrichment Z99\%,
+Cambridge Usotope Laboratories, Andover).
+
+Biomass and extracellular metabolite
+concentrations:
+
+
+Biomass concentrations were determined by recording
+OD600 nm with a spectrophotometer (Novaspec II, Pharmacia
+Biotech, Uppsala, Sweden). For each species, we determined
+mass to OD600 nm conversion factors by determining
+cellular dry weight from 510 mL filtrate with predried and
+preweighed membranes (0.45 mM, Sartorius, Goettingen,
+DE), followed by three wash steps with 4 1C ddH2O. These
+membranes were dried overnight at 85 1C and the weight
+difference was measured.
+Extracellular metabolite concentrations were determined
+with an HPX-87C Aminex, ion-exclusion column (Biorad,
+Munich, Germany) as described in Heer \& Sauer (2008) on
+an HPLC HP1100 system (Agilent Technologies, Santa
+Clara). The column temperature was 60 1C and a flow rate
+of 0.6 mL min1 of 5 mM H2SO4 as the eluant was used.
+Biomass yields were obtained from a linear fit of substrate
+or byproduct concentrations during exponential growth as a
+function of corresponding biomass concentrations. Multiplication
+with the growth rate then yielded specific glucose
+uptake and byproduct secretion rates. The physiological
+parameters were determined from at least two independent
+biological replicates.
+
+
+For labelling experiments, at least two replicate cultures were
+inoculated to an OD600 nm of 0.05 or less. During sampling,
+1 mL of culture was harvested during exponential growth
+followed by two wash steps with ddH2O and stored at
+ 20 1C for further analysis. The processing for GC-MS
+analysis was performed as described previously (Zamboni
+et al., 2009). The pellets were hydrolyzed with 6 M HCl
+overnight at 105 1C and then dried at 95 1C under a constant
+air stream. We dissolved the hydrolysates in 30 mL of the
+solvent DMF (Sigma-Aldrich, Buchs, Switzerland) and
+added 30 mL of the derivatization agent N-(tert-butyldimethylsilyl)-N-methyl-trifluoroacetamide
+with 1\% tert-butyldimethyl-chlorosilane
+(Sigma-Aldrich). Upon incubation
+at 85 1C for 1 h, mass isotopomer distributions of the
+protein-bound amino acids were determined on a 6890N
+GC system (Agilent Technologies) combined with a 5875
+Inert XL MS system (Agilent Technologies).
+The mass isotopomer distribution of the amino acid
+fragments was corrected for the amount of naturally occurring
+stable isotopes and unlabeled biomass. From the corrected
+mass isotopomer distribution of the amino acids, ratios of
+converging fluxes were calculated with the 2S-13C software as described later.]]
+
+
+
+Describe measurement of metabolite concentrations:
+
+
+[[rework: For rapid quenching of metabolism (Buscher et al., 2009;
+Ewald et al., 2009), a 1-mL culture aliquot was transferred to
+4 mL of  40 1C 60\% methanol and 10 mM ammonium
+acetate (pH 7.5) within 10 s. The quenching was followed by
+3 min of centrifugation with a swing-out rotor at 4500 g and
+ 9 1C (Centrifuge 5804R, Eppendorf, Germany). Pellets
+were stored at  80 1C until extraction. The extraction was
+performed at 80 1C in 75\% boiling ethanol and 10 mM
+ammonium acetate (pH 7.5). At this step, 100 mL of fully
+labelled 13C-biomass was added as an internal standard (Wu
+et al., 2005). The extracts were dried using a vacuum
+centrifuge (Christ-RVC 233 CD plus, Kuehner AG, Birsfeld,
+Switzerland). The dried extracts were dissolved in
+50100 mL ddH2O before being separated by ion pairingreverse
+phase liquid chromatography coupled to a ultrahigh-performance
+system.
+We used a Waters Acquity UPLC (Waters Corporation,
+Milford, MA) with a Waters Acquity T3 end-capped reversephase
+column with dimensions 150 mm 2.1 mm1.8 mm (Waters Corporation) for metabolite separation as described
+in detail in Buscher et al. (2009). The chromatography was
+coupled to a Thermo TSQ Quantum Ultra triple quadrupole
+mass spectrometer (Thermo Fisher Scientific, Waltham,
+MA) with a heated electrospray ionization source (Thermo
+Fisher Scientific) in negative mode with multiple reaction
+monitoring. Acquisition and peak integration
+was performed with an in-house software (B. Begemann \&
+N. Zamboni, unpublished data) and the peak areas were
+further normalized to fully 13C-labeled internal standards
+and the amount of biomass.
+The metabolome of all species was measured with at least
+four separately quenched replicates. To exclude artifacts, we
+performed an outlier detection on the raw data. With four
+data-points, the outlier detection discards the data point
+furthest away from the mean. With more data points, we
+calculated the 0.2 and 0.8 quantiles. From these data points,
+we determined the mean and the SD. The points being higher/
+lower than the average squared times the SD were discarded.
+
+\subsection*{2S-$^{13}C$ Metabolic Flux Analysis}
+Input for 2S-$^{13}C$ MFA.
+Required are an  initial SBML file, file with measured fluxes, file with  carbon transitions, file with  measured labeling information, and file with  feed labeling information.
+
+
+Commands in QMM python library for WRY1 strain 13C Flux Analysis:
+\begin{lstlisting}
+from IPython.display import SVG
+import FluxModels, TOYA2sbml, core, os, SBMLclasses, copy, shelve
+import ToyaData as TD
+qmodeldir         = os.environ['QUANTMODELPATH']
+basedir           = qmodeldir+'/data/tests/Toya2010/2S/'
+cd /scratch/
+
+Finding fluxes WRY1
+Get model:
+BASEfilename      = '/scratch/EciJR904TKs.xml'
+FLUXESfilename    = '/scratch/FLUX904.txt'
+REACTIONSfilename = '/scratch/REACTIONS904.txt'
+MSfilename        = '/scratch/LCMSmk.txt'
+FEEDfilename      = '/scratch/FEEDwt5h.txt'
+
+# Load initial SBML file
+reacNet = SBMLclasses.TSReactionNetwork(BASEfilename)    
+# Add Measured fluxes
+reacNet.loadFluxBounds(FLUXESfilename)
+# Add carbon transitions
+reacNet.addTransitions(REACTIONSfilename,translate2SBML=True)
+# Add measured labeling information
+reacNet.addLabeling(MSfilename,'LCMS',minSTD=0.001)
+# Add feed labeling information
+reacNet.addFeed(FEEDfilename)
+ 
+# Limit fluxes to 500       
+reacNet.capFluxBounds(500)
+    
+reacNet.write('/scratch/JO904file-control.sbml')
+
+Getting fluxes to be measured:
+
+TSmodel1  = FluxModels.TwoSC13Model('/scratch/JO904file-control.sbml')       
+coreFluxes = TSmodel1.ReacNet.C13ReacNet.reactionList.getReactionNameList(level=1)
+fluxNames = [name for name in coreFluxes if 'EX' not in name]    
+
+TSresults1 = TSmodel1.findFluxesRanges(Nrep=360,fluxNames=fluxNames,limitFlux2Core=True, erase=False) 
+TSresults1.plotExpvsCompLabelFragment(titleFig='test',save="fitTest.eps")
+TSresults1.drawFluxes('dh1-904.svg',svgInFileName='TOYAexp.svg',norm='EX_glc_e_')
+\end{lstlisting}
+
+An  iPython notebook is provided in the supplementary material for generating flux results using the QMM library.
+
+
+\section*{Results and discussion}
+\subsection*{ACL alone improves fatty acid production minimally}
+ATP citrate lyase (ACL) is an enzyme which is not normally present in S. cerevisae, but which in other organisms such as plants produces cytosolic acetyl-CoA which act as precursors in the production of fatty acids or many thousands of other specialized metabolites including waxes, sterols, and polyketides. In the presence of ATP and Coenzyme A, ACL catalyzes the cleavage of citrate to yield acetyl-CoA, oxaloacetate, ADP, and orthophosphate:
+
+citrate + ATP + CoA + H2O--$>$ oxaloacetate + acetyl-CoA + ADP + Pi
+
+Given that fatty acid production in S. cerevisae and our fatty acid producing optimized strain WRY1 is dependent on acetyl-CoA we introduced ACL containing plasmids to our WRY1 strain to increase the production of acetyl-CoA precursors. This resulted in a small 5\% in fatty acid production. See Fig.~\ref{fig:FAyields}.
+
+\subsection*{2S-$^{13}C$ MFA indicates acetyl-CoA is diverted from fatty acid metabolism via Malatate synthase}
+To remedy and diagnose the small increase in fatty acid production in the face of acetyl-CoA substrate production increases via the addition of ACL containing plasmids to our WRY1 strain we performed 2S-$^{13}C$ Metabolic Flux Analysis to determine acetyl-CoA substrate fates. We first studied the wild type and engineered fatty acid producing strain WRY1 fluxes, Fig.~\ref{fig:wry1}, to form a baseline for which to understand acetyl-CoA substrate fates in WRY1 strains with ACL, see Fig.~\ref{fig:ACL}.
+
+Through 2S-$^{13}C$ MFA we determined genome wide acetyl-CoA balance for the fatty acid producing strain  WRY1 + ACL to be roughly 0.5 mmol/gdw/hr higher than for the WRY1 strain alone. The addition of ACL increases acetyl-CoA substrate production but this is nearly completely offset by an increase in Malate synthase (MALS) consumption of acetyl-CoA and very little flux of substrate is redirected towards fatty acid production (FAS40COA).
+
+%\subsection*{MALS down regulation improves fatty acid yield}
+The next engineering step after determining that MALS was acting as a sink for additional acetyl-CoA substrate production provided by ACL was to down regulate MALS in the hope that this would increase the carbon flux towards fatty acid synthesis. Indeed, after downregulating MALS activity fatty acid production increased around 20\%. See Fig.~\ref{fig:FAyields}.
+
+\subsection*{GPD1 knock out improves fatty acid production}
+Glycerol-3-phosphate dehydrogenase (GAPD) is an enzyme that catalyzes the conversion of dihydroxyacetone phosphate to glycerol 3-phosphate, and plays an important role in the synthesis of lipids which compete for carbon flux with the fatty acid synthesis pathways whose carbon flux we are attempting to optimize. Using 2S-$^{13}C$ MFA we determined that flux through GPD1 in the WRY1, WRY1+ACL, and WRY1+ACL+dMALS strains to be 13.0, 17.0, and 17.3 mmol/gdw/hr. Therefore, as we engineered WRY1 for greater free fatty acid production flux through the addition of ACL and downregulation of MALS the competing Glycerol-3-phosphate dehydrogenase pathway had a carbon flux which similarly increased. If this competing carbon flux could be downregulated by knocking out GPD1 more carbon flux might be available for fatty acid production. As expected, WRY1 +$\delta$GPD1 and WRY1+ACL +$\delta$GPD1 strains had higher fatty acid production over WRY1 of 23\% and 40\% respectively. See Fig.~\ref{fig:FAyields}.
+
+Confirming our intuitions that downregulating GPD1 allows for more carbon flux in a competing pathway such a fatty acid synthesis, 2S-$^{13}C$ MFA flux profiles of GPD1 knock outs show increased acetyl-CoA production, Fig.~\ref{fig:gdp1}.
+
+\section*{Conclusion}
+2S-$^{13}C$ Metabolic Flux Analysis provides a more reliable calculation of fluxes than Flux Based Analysis (FBA) since it determines carbon fluxes through the use of $^{13}$C  experimental data instead of using evolutionary or optimization  assumptions.
+
+The use of 2S-$^{13}C$ Metabolic Flux Analysis had provided us with actionable predictions from 13C flux profiles which showed a significant sink of acetyl-CoA, the source compound for fatty acids, in the glyoxylate shunt (malate synthase). By downregulating the activity of this enzyme, we were able to increase fatty acid production by x\%. Similarly, using 2S-$^{13}C$ Metabolic Flux Analysis we have shown that by downregulating GPD1, which is a competing enzyme for carbon flux with the fatty acid production pathway, acetyl-CoA substrate production for fatty acids is increased, resulting in a similar production increase of fatty acids.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Backmatter begins here                   %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{backmatter}
+
+\section*{Competing interests}
+  The authors declare that they have no competing interests.
+
+\section*{Author's contributions}
+    Text for this section \ldots
+
+\section*{Acknowledgements}
+  Text for this section \ldots
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  The Bibliography                       %%
+%%                                                         %%
+%%  Bmc_mathpys.bst  will be used to                       %%
+%%  create a .BBL file for submission.                     %%
+%%  After submission of the .TEX file,                     %%
+%%  you will be prompted to submit your .BBL file.         %%
+%%                                                         %%
+%%                                                         %%
+%%  Note that the displayed Bibliography will not          %%
+%%  necessarily be rendered by Latex exactly as specified  %%
+%%  in the online Instructions for Authors.                %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% if your bibliography is in bibtex format, use those commands:
+\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
+
+\bibliography{FA}
+
+% or include bibliography directly:
+% \begin{thebibliography}
+% \bibitem{b1}
+% \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Figures                       %%
+%%                               %%
+%% NB: this is for captions and  %%
+%% Titles. All graphics must be  %%
+%% submitted separately and NOT  %%
+%% included in the Tex document  %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+%% Do not use \listoffigures as most will included as separate files
+
+\section*{Figures}
+
+\begin{figure}[h!]
+\includegraphics[width=1.0\textwidth]{Yeilds.jpg}
+\caption{
+Fatty acid production measurement for the various strains studied in this manuscript: ATP Citrate Lyase (ACL) combined with MLS1 down regulation combined with down regulation of GPD1 possibly improves fatty acid production the most. \textbf{ ADD DATA FOR WRY1 + ACL+ DGPD1 + DMLS, AND OTHER TIME POINTS!!!!!!!!!!!}}
+\label{fig:FAyields}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+\includegraphics[width=1.2\textwidth]{figwry1.pdf}
+\caption{
+Genome wide acetylCoA balance for engineered fatty acid producing strain WRY1 and lab strain BY4742 which is similar to WT S. cerevisae. Acetyl-CoA substrate production is highest in the engineered strain which also has a modest increase of flux of substrate directed towards fatty acid production (FAS40COA).}
+\label{fig:wry1}
+ \end{figure}
+
+
+
+
+\begin{figure}[h!]
+\includegraphics[width=1.2\textwidth]{figacl.pdf}
+\caption{
+Genome wide acetylCoA balance for fatty acid producing strain WRY1 and for WRY1 + ACL. The addition of ACL increases acetyl-CoA substrate production but this is nearly completely offset by an increase in MALS (Malate synthase) consumption of acetyl-CoA and very little flux of substrate is redirected towards fatty acid production (FAS40COA).}
+\label{fig:ACL}
+ \end{figure}
+
+
+\begin{figure}[h!]
+\includegraphics[width=1.2\textwidth]{figgpd1.pdf}
+\caption{
+Genome wide acetylCoA balance for fatty acid producing strain WRY1 +$\delta$GPD1 and for strain WRY1+ACL +$\delta$GPD1. The downregulation of GPD1 increases acetyl-CoA substrate production but this is nearly completely offset by an increase in ACCOACr (acetyl-CoA carboxylase) consumption of acetyl-CoA for both strains, although there is a modest increase of flux of substrate directed towards fatty acid production (FAS40COA).}
+\label{fig:gdp1}
+ \end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Tables                        %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Use of \listoftables is discouraged.
+%%
+\section*{Tables}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Additional Files              %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Additional Files}
+  \subsection*{Additional file 1 --- Sample additional file title}
+    Additional file descriptions text (including details of how to
+    view the file, if it is in a non-standard format or the file extension).  This might
+    refer to a multi-page table or a figure.
+
+  \subsection*{Additional file 2 --- Sample additional file title}
+    Additional file descriptions text.
+
+
+\end{backmatter}
+\end{document}
